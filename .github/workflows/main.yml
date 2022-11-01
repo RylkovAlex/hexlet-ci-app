@@ -12,17 +12,10 @@ jobs:
           node-version: '16.x'
           cache: npm
       - run: make setup
-  start:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v3
-      - run: make start
   test:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - run: make test
   lint:
     needs: setup
